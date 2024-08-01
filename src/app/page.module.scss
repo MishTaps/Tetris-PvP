@@ -1,0 +1,50 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+.monitor {
+  border: 1px solid black;
+  display: grid;
+  grid-template-columns: repeat(10, 28px);
+  grid-template-rows: repeat(20, 28px);
+}
+.blockEmpty {
+  border: 1px solid rgb(189, 189, 207);
+}
+.blockFilled {
+  border: 1px solid rgb(149, 45, 45);
+  background-color: red;
+}
+.blockFigure {
+  border: 1px solid rgb(113, 168, 31);
+  background-color: greenyellow;
+}
+.infoPanel {
+  width: 300px;
+  display: flex;
+  border: 1px solid black;
+}
+.infoBlock {
+  width: 50%;
+  border: 1px solid black;
+}
+.nextFigure {
+  width: 50%;
+  justify-content: center;
+  padding: 0px 0 0 0;
+  display: grid;
+  grid-template-columns: repeat(4, 24px);
+  grid-template-rows: repeat(2, 24px);
+  border: 1px solid black;
+}
+.nextFigureBlockEmpty {
+  border: 1px solid rgb(189, 189, 207);
+}
+.nextFigureBlockFigure {
+  border: 1px solid rgb(189, 189, 207);
+  border: 1px solid rgb(113, 168, 31);
+  background-color: greenyellow;
+}
