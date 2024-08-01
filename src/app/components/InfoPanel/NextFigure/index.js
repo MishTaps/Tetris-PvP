@@ -1,0 +1,1 @@
+export { NextFigure } from './NextFigure';
