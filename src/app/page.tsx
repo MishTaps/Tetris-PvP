@@ -30,8 +30,8 @@ export default function Home() {
     [13, 14, 15, 16], // I
     [4, 5, 14, 15], // O
     [14, 15, 5, 6], // S
-    [3, 4, 14, 15], // Z
-    [13, 14, 15, 5], // L
+    [4, 5, 15, 16], // Z
+    [14, 15, 16, 6], // L
     [4, 14, 15, 16], // J
     [14, 15, 16, 5], // T
   ];
@@ -93,6 +93,7 @@ export default function Home() {
           figureBlocks.status = 'figure';
         });
       });
+      setFigureAreaStartIndex(figureAreaStartIndex - 1);
     }
   };
   const pushRight = () => {
@@ -130,6 +131,7 @@ export default function Home() {
           figureBlocks.status = 'figure';
         });
       });
+      setFigureAreaStartIndex(figureAreaStartIndex + 1);
     }
   };
 
@@ -164,6 +166,9 @@ export default function Home() {
       case 'Enter':
         togglePlayAndPause();
         break;
+      case ' ':
+        rotate();
+        break;
       default:
         break;
     }
@@ -176,6 +181,39 @@ export default function Home() {
       default:
         break;
     }
+  };
+  let lengthOfFigure: number;
+  let figureAreaStartIndex_new: number;
+  if (figure.toString() === figures[0].toString()) {
+    lengthOfFigure = 4;
+    figureAreaStartIndex_new = 3;
+  } else if (figure.toString() === figures[1].toString()) {
+    lengthOfFigure = 2;
+    figureAreaStartIndex_new = 4;
+  } else {
+    lengthOfFigure = 3;
+    figureAreaStartIndex_new = 4;
+  }
+  const [figureAreaStartIndex, setFigureAreaStartIndex] = useState(
+    figureAreaStartIndex_new,
+  );
+  const rotate = () => {
+    switch (lengthOfFigure) {
+      case 3:
+        rotate3x3();
+        break;
+      case 4:
+        rotate4x4();
+        break;
+      default:
+        break;
+    }
+  };
+  const rotate3x3 = () => {
+    console.log('rotate3x3()');
+  };
+  const rotate4x4 = () => {
+    console.log('rotate4x4()');
   };
 
   return (
@@ -223,6 +261,7 @@ export default function Home() {
       <button autoFocus>
         Нажмите сюда для управления с помощью клавиатуры
       </button>
+      {figureAreaStartIndex}
     </main>
   );
 }
